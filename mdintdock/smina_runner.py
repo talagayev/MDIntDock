@@ -74,6 +74,8 @@ class SminaRunner:
 
         return ligands
 
+
+
     def run_ref_docking(self, receptor_file, sdf_file):
         # Create output directory for ref docking if it doesn't exist
         ref_docking_output_dir = os.path.join(self.output_dir, "ref_docking")
@@ -89,9 +91,9 @@ class SminaRunner:
             "--receptor", receptor_file,
             "--ligand", sdf_file,
             "--out", output_file,
-            "--num_modes", "25",
+            "--num_modes", "10",
             "--autobox_ligand", sdf_file,
-            "--exhaustiveness", "25",
+            "--exhaustiveness", "10",
         ]
         try:
             subprocess.run(command, check=True)
